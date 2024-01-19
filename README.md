@@ -90,7 +90,7 @@ In addition, if the speech includes technical terms or dialect words the model h
 
 ## Demonstration
 
-For inferecne and downloading the model, check on Hugging Face Space: [NeMo_STT_KZ_Quartznet15x5](https://huggingface.co/spaces/transiteration/nemo_stt_kz_quartznet15x5)
+For inference and downloading the model, check on Hugging Face Space: [NeMo_STT_KZ_Quartznet15x5](https://huggingface.co/spaces/transiteration/nemo_stt_kz_quartznet15x5)
 
 ## References
 
