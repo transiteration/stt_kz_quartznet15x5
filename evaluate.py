@@ -9,7 +9,7 @@ from omegaconf import open_dict
 def evaluate_model(
         model_path: str = None,
         test_manifest: str = None,
-        batch_size: int = 1
+        batch_size: int = 1,
     ) -> Dict:
 
     # Determine the device (CPU or GPU)
@@ -64,5 +64,5 @@ if __name__ == "__main__":
     evaluate_model(
         model_path=args.model_path, 
         test_manifest=args.test_manifest, 
-        batch_size=args.batch_size
+        batch_size=args.batch_size,
     )
