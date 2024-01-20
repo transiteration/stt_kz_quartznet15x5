@@ -8,8 +8,8 @@ from omegaconf import OmegaConf, open_dict
 
 
 def train_model(
-        train_manifest: str, 
-        val_manifest: str, 
+        train_manifest: str = None, 
+        val_manifest: str = None, 
         accelerator: str = "cpu", 
         batch_size: int = 1, 
         num_epochs: int = 1, 
@@ -154,8 +154,8 @@ def train_model(
 if __name__ == "__main__":
     # Parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--train_manifest", help="Path for train manifest JSON file.")
-    parser.add_argument("--val_manifest", help="Path for validation manifest JSON file.")
+    parser.add_argument("--train_manifest", default = None, help="Path for train manifest JSON file.")
+    parser.add_argument("--val_manifest", default = None, help="Path for validation manifest JSON file.")
     parser.add_argument("--accelerator", default="cpu", help="What accelerator type to use (cpu, gpu, tpu, etc.).")
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size of the dataset to train.")
     parser.add_argument("--num_epochs", type=int, default=1, help="Number of epochs to train for.")
