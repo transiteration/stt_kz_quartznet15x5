@@ -11,6 +11,7 @@ def train_model(train_manifest: str, val_manifest: str, accelerator: str, batch_
 
     # Loading a STT Quartznet 15x5 model
     model = nemo_asr.models.ASRModel.from_pretrained("stt_en_quartznet15x5")
+    
     # New vocabulary for a model
     new_vocabulary = [
         " ",
@@ -56,6 +57,7 @@ def train_model(train_manifest: str, val_manifest: str, accelerator: str, batch_
         "ә",
         "ө",
     ]
+    
     # Configurations
     with open_dict(model.cfg):
         # Setting up the labels and sample rate
