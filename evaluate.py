@@ -57,7 +57,7 @@ if __name__ == "__main__":
     # Parse command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", default=None, help="Path to a model to evaluate.")
-    parser.add_argument("--test_manifest", help="Path for train manifest JSON file.")
+    parser.add_argument("--test_manifest", default=None, help="Path for train manifest JSON file.")
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size of the dataset to train.")
     args = parser.parse_args()
 
