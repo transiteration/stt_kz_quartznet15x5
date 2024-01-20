@@ -64,4 +64,5 @@ if __name__ == "__main__":
     evaluate_model(
         model_path=args.model_path, 
         test_manifest=args.test_manifest, 
-        batch_size=args.batch_size)
+        batch_size=args.batch_size
+    )
