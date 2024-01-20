@@ -6,7 +6,11 @@ import torch
 from omegaconf import open_dict
 
 
-def evaluate_model(model_path: str, test_manifest: str, batch_size: int = 1) -> Dict:
+def evaluate_model(
+        model_path: str = None,
+        test_manifest: str = None,
+        batch_size: int = 1
+    ) -> Dict:
 
     # Determine the device (CPU or GPU)
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -57,4 +61,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size of the dataset to train.")
     args = parser.parse_args()
 
-    evaluate_model(model_path=args.model_path, test_manifest=args.test_manifest, batch_size=args.batch_size)
+    evaluate_model(
+        model_path=args.model_path, 
+        test_manifest=args.test_manifest, 
+        batch_size=args.batch_size)
