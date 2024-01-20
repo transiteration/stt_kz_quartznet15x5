@@ -7,7 +7,7 @@ from nemo.utils import exp_manager, logging
 from omegaconf import OmegaConf, open_dict
 
 
-def train_model(train_manifest: str, val_manifest: str, accelerator: str, batch_size: int, num_epochs: int, model_save_path: str = None,) -> None:
+def train_model(train_manifest: str, val_manifest: str, accelerator: str = "cpu", batch_size: int = 1, num_epochs: int, model_save_path: str = None,) -> None:
 
     # Loading a STT Quartznet 15x5 model
     model = nemo_asr.models.ASRModel.from_pretrained("stt_en_quartznet15x5")
@@ -149,7 +149,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--train_manifest", help="Path for train manifest JSON file.")
     parser.add_argument("--val_manifest", help="Path for validation manifest JSON file.")
-    parser.add_argument("--accelerator", help="What accelerator type to use (cpu, gpu, tpu, etc.).")
+    parser.add_argument("--accelerator", default="cpu", help="What accelerator type to use (cpu, gpu, tpu, etc.).")
     parser.add_argument("--batch_size", type=int, default=1, help="Batch size of the dataset to train.")
     parser.add_argument("--num_epochs", type=int, default=1, help="Number of epochs to train for.")
     parser.add_argument("--model_save_path", default=None, help="Path for saving a trained model.")
