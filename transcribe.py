@@ -7,7 +7,7 @@ import nemo.collections.asr as nemo_asr
 def predict_model(
         model_path: str = None,
         audio_file_path: str = None,
-    ) -> Dict:
+) -> Dict:
     # Restore the ASR model from the provided path
     model = nemo_asr.models.ASRModel.restore_from(restore_path=model_path)
     # Transcribe the given audio file
