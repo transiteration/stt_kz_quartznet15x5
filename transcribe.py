@@ -24,5 +24,5 @@ if __name__ == "__main__":
 
     predict_model(
         model_path=args.model_path, 
-        audio_file_path=args.audio_file_path,             )
+        audio_file_path=args.audio_file_path,
     )
