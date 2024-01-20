@@ -106,7 +106,7 @@ def train_model(train_manifest: str, val_manifest: str, accelerator: str = "cpu"
 
     # Trainer
     trainer = ptl.Trainer(
-        accelerator="gpu",
+        accelerator=accelerator,
         max_epochs=num_epochs,
         accumulate_grad_batches=1,
         enable_checkpointing=False,
