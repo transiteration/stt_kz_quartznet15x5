@@ -36,19 +36,21 @@ The model is accessible within the NeMo toolkit [1] and can serve as a pre-train
 
 ```
 import nemo.collections.asr as nemo_asr
-model = nemo_asr.models.EncDecCTCModel.restore_from(restore_path="stt_kz_quartznet15x5.nemo")
+model = nemo_asr.models.ASRModel.restore_from(restore_path="stt_kz_quartznet15x5.nemo")
 ```
 
 #### How to Train
 
 ```
-python3 train.py --train_manifest path/to/manifest.json --val_manifest path/to/manifest.json --batch_size BATCH_SIZE --num_epochs NUM_EPOCHS  --model_save_path path/to/save/model.nemo
+python3 train.py --train_manifest path/to/manifest.json --val_manifest path/to/manifest.json \
+--accelerator "gpu" --batch_size BATCH_SIZE --num_epochs NUM_EPOCHS \
+--model_save_path path/to/save/model.nemo
 ```
 
 #### How to Evaluate
 
 ```
-python3 evaluate.py --model_path /path/to/stt_kz_quartznet15x5.nemo --test_manifest path/to/manifest.json" 
+python3 evaluate.py --model_path /path/to/model.nemo --test_manifest path/to/manifest.json --batch_size BATCH_SIZE
 ```
 
 #### How to Transcribe Audio File
@@ -59,7 +61,7 @@ wget https://asr-kz-example.s3.us-west-2.amazonaws.com/sample_kz.wav
 ```
 This line is to transcribe the single audio:
 ```
-python3 transcibe.py --model_path /path/to/stt_kz_quartznet15x5.nemo --audio_file_path path/to/audio/file
+python3 transcribe.py --model_path /path/to/model.nemo --audio_file_path path/to/audio/file
 ```
 
 ## Input and Output
