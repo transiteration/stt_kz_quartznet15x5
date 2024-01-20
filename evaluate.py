@@ -10,7 +10,7 @@ def evaluate_model(
         model_path: str = None,
         test_manifest: str = None,
         batch_size: int = 1,
-    ) -> Dict:
+) -> Dict:
 
     # Determine the device (CPU or GPU)
     device = "cuda" if torch.cuda.is_available() else "cpu"
