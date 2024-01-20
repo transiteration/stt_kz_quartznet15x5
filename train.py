@@ -56,7 +56,7 @@ def train_model(train_manifest: str, val_manifest: str, accelerator: str, batch_
         "ә",
         "ө",
     ]
-
+    # Configurations
     with open_dict(model.cfg):
         # Setting up the labels and sample rate
         model.cfg.labels = new_vocabulary
@@ -133,10 +133,10 @@ def train_model(train_manifest: str, val_manifest: str, accelerator: str, batch_
     print(OmegaConf.to_yaml(model.cfg))
     print("-----------------------------------------------------------")
 
-    #     # Fitting the model
+    # Fitting the model
     trainer.fit(model)
 
-    #     # Saving the model
+    # Saving the model
     if model_save_path:
         model.save_to(f"{model_save_path}")
         print(f"Model saved at path : {os.getcwd() + os.path.sep + model_save_path}")
