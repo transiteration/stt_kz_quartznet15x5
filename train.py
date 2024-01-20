@@ -7,7 +7,7 @@ from nemo.utils import exp_manager, logging
 from omegaconf import OmegaConf, open_dict
 
 
-def train_model(train_manifest: str, val_manifest: str, accelerator: str = "cpu", batch_size: int = 1, num_epochs: int, model_save_path: str = None,) -> None:
+def train_model(train_manifest: str, val_manifest: str, accelerator: str = "cpu", batch_size: int = 1, num_epochs: int = 1, model_save_path: str = None,) -> None:
 
     # Loading a STT Quartznet 15x5 model
     model = nemo_asr.models.ASRModel.from_pretrained("stt_en_quartznet15x5")
